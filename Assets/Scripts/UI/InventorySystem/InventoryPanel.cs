@@ -77,9 +77,9 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public void LevelUp()
+    public void UpdateLevel(int le)
     {
-        level++;
+        level = le;
         UpdateInventoryImage(level-1);
     }
 
