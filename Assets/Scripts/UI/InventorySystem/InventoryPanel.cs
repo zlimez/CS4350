@@ -1,5 +1,6 @@
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
@@ -48,11 +49,20 @@ public class InventorySystem : MonoBehaviour
         JournalButton.onClick.AddListener(OpenJournal);
         CloseButton.onClick.AddListener(ToggleInventory);
     }
-
-    void Update()
+    
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.I))
+    //     {
+    //         ToggleInventory();
+    //         OpenBag();
+    //     }
+    // }
+    public void OnOpenInventory(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (context.performed)
         {
+            Debug.Log("I key pressed, toggling inventory.");
             ToggleInventory();
             OpenBag();
         }
